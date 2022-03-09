@@ -1,21 +1,20 @@
-import CoffeeMaker from "./CoffeeMaker";
-
 class CoffeeMachine {
-  constructor(props) {
-    this.coffeeMaker = new CoffeeMaker();
-  }
+  _makersMap = new Map();
 
   processRequest(request) {
-    switch (request) {
-      case 'AMERICANO':
-        return this.coffeeMaker.makeAmericano();
-      case 'ESPRESSO':
-        return this.coffeeMaker.makeEspresso();
-      case 'LATTE':
-        return this.coffeeMaker.makeLatte();
-      default:
-        throw new Error('Wrong Request');
+    if (this._makersMap.has(request)) {
+      return this._makersMap.get(request).make()
+    } else {
+      throw new Error('Wrong Request');
     }
+  }
+
+  get makersMap() {
+    return this._makersMap;
+  }
+
+  set makersMap(value) {
+    this._makersMap = value;
   }
 }
 

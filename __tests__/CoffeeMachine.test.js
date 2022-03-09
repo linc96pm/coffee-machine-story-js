@@ -1,10 +1,23 @@
 import CoffeeMachine from "../src/CoffeeMachine";
+import AmericanoMaker from "../src/AmericanoMaker";
+import ExpressoMaker from "../src/ExpressoMaker";
+import LatteMaker from "../src/LatteMaker";
+import CappuccinoMaker from "../src/CappuccinoMaker";
+import MocaccinoMaker from "../src/MocaccinoMaker";
 
 describe('CoffeeMachine', () => {
   let coffeeMachine;
 
   beforeEach(() => {
+    const makers = new Map();
+    makers.set('AMERICANO', new AmericanoMaker());
+    makers.set('ESPRESSO', new ExpressoMaker());
+    makers.set('LATTE', new LatteMaker());
+    makers.set('CAPPUCCINO', new CappuccinoMaker());
+    makers.set('MOCACCINO', new MocaccinoMaker());
+
     coffeeMachine = new CoffeeMachine();
+    coffeeMachine.makersMap = makers;
   });
 
   it('should get americano recipe', () => {
@@ -32,14 +45,14 @@ describe('CoffeeMachine', () => {
     expect(() => coffeeMachine.processRequest('TEA')).toThrowError(new Error('Wrong Request'));
   });
 
-  xit('should get cappuccino recipe', () => {
+  it('should get cappuccino recipe', () => {
     const expected = { espresso: 1, milk: 1, foam: 1 };
     const actual = coffeeMachine.processRequest('CAPPUCCINO');
 
     expect(actual).toEqual(expected);
   });
 
-  xit('should get mocaccino recipe', () => {
+  it('should get mocaccino recipe', () => {
     const expected = { espresso: 1, milk: 2, foam: 1, chocolate: 1 };
     const actual = coffeeMachine.processRequest('MOCACCINO');
 
