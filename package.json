@@ -1,0 +1,33 @@
+{
+  "name": "coffee-machine-story",
+  "version": "1.0.0",
+  "description": "**To read the story**: https://refactoringstories.com/file-view/https:%2F%2Fgit.epam.com%2FRefactoring-Stories%2Fcoffee-machine-story-js",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linc96pm/coffee-machine-story-js.git"
+  },
+  "keywords": [
+    "ocp",
+    "open-closed-principle",
+    "js",
+    "clean-code"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/linc96pm/coffee-machine-story-js/issues"
+  },
+  "homepage": "https://github.com/linc96pm/coffee-machine-story-js#readme",
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/preset-env": "^7.16.11",
+    "babel-jest": "^27.5.1",
+    "jest": "^27.5.1",
+    "jest-cli": "^27.5.1"
+  }
+}
